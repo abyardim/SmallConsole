@@ -86,7 +86,7 @@ architecture Behavioral of MemoryMapper is
     signal tileref : std_logic_vector( 5 downto 0) := "000000";
 begin
 
-    ram : SinglePortRAM generic map ( 16, 15, "C:/Users/Batuhan/Documents/VDHLProjects/CPUDemo2/ramInit.mem") 
+    ram : SinglePortRAM generic map ( 16, 15, "ramInit.mem") 
                         port map ( clk_in, ram_addr, '1', ram_wrt, ram_in, ram_out);
 
     controller_reader1 : ControllerIn port map( clk_in, gpdata, gplatch, gpclock, controllerState1);

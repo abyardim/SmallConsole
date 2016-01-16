@@ -1,35 +1,8 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 13.12.2015 02:50:45
--- Design Name: 
--- Module Name: VideoDataRAM - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
+-- stores all the contents of the picture provessing unit
+-- including the tile palette, color palette and screen placements
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity VideoDataRAM is
     Port ( vram_clk, vram_wea : in std_logic;
@@ -81,13 +54,13 @@ architecture Behavioral of VideoDataRAM is
         signal cdataAddr : std_logic_vector( 3 downto 0);
         signal cdataDin, cdataDout : std_logic_vector( 11 downto 0);
 begin
-    tileMapper : DualPortRAM generic map ( 6, 8, "C:/Users/Batuhan/Documents/VDHLProjects/CPUDemo2/screenData.mem")
+    tileMapper : DualPortRAM generic map ( 6, 8, "screenData.mem")
                              port map ( vram_clk, pxClock, mapperAddr, tileY & tileX, '1', '1', mapperWrite, mapperDin, mapperDout, tileIdOut);
                              
-    tileData : DualPortRAM generic map ( 4, 16, "C:/Users/Batuhan/Documents/VDHLProjects/CPUDemo2/tileData.mem")
+    tileData : DualPortRAM generic map ( 4, 16, "tileData.mem")
                              port map ( vram_clk, pxClock, tdataAddr, tileIdIn & tY & tX, '1', '1', tdataWrite, tdataDin, tdataDout, colIdOut);
                              
-    colMap : DualPortRAM generic map ( 12, 4, "C:/Users/Batuhan/Documents/VDHLProjects/CPUDemo2/colData.mem")
+    colMap : DualPortRAM generic map ( 12, 4, "colData.mem")
                              port map ( vram_clk, pxClock, cdataAddr, colIdIn, '1', '1', cdataWrite, cdataDin, cdataDout, color);
                              
     
