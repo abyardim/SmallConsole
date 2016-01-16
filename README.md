@@ -12,3 +12,6 @@ The device has a simplistic graphics processor, which tiles the screen into 32x3
 
 ## The assembler
 There is a basic assembler written in Java which generates bit values from a file that contains proper assembly code, simplifying the development process of games.
+
+## Extensibility
+The processor uses a memory mapped IO model for communication with sceondary parts, so custom graphics modules and IO devices can be implemented by simply writing memory mappers. 
