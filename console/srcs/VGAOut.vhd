@@ -1,23 +1,5 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 10.11.2015 01:19:44
--- Design Name: 
--- Module Name: VGAOut - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
+-- the VGA signal generator
+-- uses the VRAM contents to output proper pixel values with the vga clock
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
