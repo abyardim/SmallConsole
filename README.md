@@ -4,7 +4,7 @@ Simple synthesizable console with a custom CPU, designed for the BASYS 3 board. 
 ## The processor
 The device has a 16-bit processor designed specifically for it, with a custom straightforward instruction set.
 
-## The constroller
+## The controller
 The device can be controlled by a NES controller, the output being mapped to a memory address. The current state of the controller can be obtained through a memory read.
 
 ## Graphics
